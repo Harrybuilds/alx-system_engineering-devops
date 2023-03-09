@@ -1,0 +1,2 @@
+#!/bin/bash
+mkdir -m u=7 g=5 o=1 my_dir
