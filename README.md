@@ -1,2 +1,1 @@
-
-This is the first readme file
+This is a readme file for 0x02-shell_redirections project
