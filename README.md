@@ -1,1 +1,1 @@
-This is a readme file for 0x02-shell_redirections project
+This is ALX system engineering Devops projects
