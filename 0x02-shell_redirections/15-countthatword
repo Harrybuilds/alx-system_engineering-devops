@@ -1,3 +1,2 @@
-
-41;320;0c#!/bin/bash
+#!/bin/bash
 egrep -c "bin" /etc/passwd
