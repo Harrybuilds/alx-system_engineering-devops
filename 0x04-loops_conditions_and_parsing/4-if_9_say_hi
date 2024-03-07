@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script is printing "Best Schoo" and Hi 'after' the 9th "Best school" is printed, using while loop
+
+i=0
+var="Best School"
+
+while [ $i -lt 10 ]; do
+      echo "$var";
+      (( i++ ))
+      if [ $i -eq 9 ]; then
+	  echo "Hi";
+      fi
+done

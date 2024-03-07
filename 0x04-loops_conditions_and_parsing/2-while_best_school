@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script prints "Best School" using while loop
+
+i=0
+var="Best School"
+while [ $i -lt 10 ];do 
+    echo "$var";
+    ((i++))
+done

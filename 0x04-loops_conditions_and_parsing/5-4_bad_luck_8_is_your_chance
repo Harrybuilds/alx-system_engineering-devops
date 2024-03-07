@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# This script loops from 1 to 10 and:
+
+# displays bad luck for the 4th loop iteration
+# displays good luck for the 8th loop iteration
+# displays Best School for the other iterations
+
+# using while loop, if, elif, and else statement
+
+i=0
+
+while [ $i -lt 10 ]; do
+      if [ $i -eq 3 ]; then
+      	  var="bad luck"
+      elif [ $i -eq 7 ]; then
+	  var="good luck"
+      else
+	  var="Best School"
+      fi
+      echo "$var";
+      (( i++ ))
+done
