@@ -49,18 +49,22 @@
 
 
 # Iterate over directories in /proc
-for pid_dir in /proc/*/; do
-    echo "$pid_dir"
-    pid=$(basename "$pid_dir")
+# for pid_dir in /proc/*/; do
+#    echo "$pid_dir"
+#    pid=$(basename "$pid_dir")
 
-    # Check if the directory name is a number (process ID)
-    if [[ "$pid" =~ ^[0-9]+$ ]]; then
+#    # Check if the directory name is a number (process ID)
+#    if [[ "$pid" =~ ^[0-9]+$ ]]; then
         # Get the process name from /proc/<pid>/comm file
-        process_name=$(< "$pid_dir"/comm)
+#        process_name=$(< "$pid_dir"/comm)
 
         # Check if the process name contains the word "bash"
-        if [[ "$process_name" == *"bash"* ]]; then
-            echo "$pid $process_name"
-        fi
-    fi
-done
+#        if [[ "$process_name" == *"bash"* ]]; then
+#            echo "$pid $process_name"
+#        fi
+#    fi
+# done
+
+
+# after so much stress
+pgrep -l bash
