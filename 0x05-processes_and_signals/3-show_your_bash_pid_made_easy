@@ -32,7 +32,8 @@
 #    echo "Process $process_name is not running"
 # fi
 
-pid=$(ps -eo pid,comm)
+#pid=$(ps -eo pid,comm)
+pid=$(top -b -n 1 -d 1 -o PID)
 c=0
 
 for i in $pid; do
