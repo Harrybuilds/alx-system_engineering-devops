@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # Parent process
 # echo "Parent process (PID $$)"
