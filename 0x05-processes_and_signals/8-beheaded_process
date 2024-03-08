@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script kills a process when exected. it is designed a process without the process being cleanup
+# it kills the process with processID
+
+# Find the process
+pid=$(pgrep -f 7-highlander)
+
+# Check if the process exist in the process table
+if [ -n "$pid" ]; then
+   kill -9" $pid"
+fi

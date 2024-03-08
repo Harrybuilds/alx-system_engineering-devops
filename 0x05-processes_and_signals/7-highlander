@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script prints "To infinity and beyond" and adds a sleep of 2 seconds
+# Then prints I am invincible!!! when receiving a SIGTERM signal
+
+# Function to be executed when SIGTERM is called on this process
+sigterm_handler(){
+    echo "I am invincible!!!"
+}
+
+i=0
+
+# Trap SIGTERM signal and call sigterm_handler function
+trap "sigterm_handler" SIGTERM
+
+until [ $i -eq 5 ]; do
+     echo "To infinity and beyond";
+     sleep 2;
+done
