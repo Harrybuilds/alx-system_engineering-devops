@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script kills a process when exected. it is designed to not use kill or killall
+# it kills the process with commandline args (file name) with 4-to_infinity_and_beyond
+
+# Find the process
+pid=$(pgrep -f 4-to_infinity_and_beyond)
+
+# Check if the process exist in the process table
+if [ -n "$pid" ]; then
+   pkill -f 4-to_infinity_and_beyond
+fi
