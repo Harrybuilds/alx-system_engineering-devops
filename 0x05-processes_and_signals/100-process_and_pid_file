@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+# This script:
+# Creates the file /var/run/myscript.pid containing its PID
+# Displays To infinity and beyond indefinitely
+# Displays I hate the kill command when receiving a SIGTERM signal
+#Displays Y U no love me?! when receiving a SIGINT signal
+# Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
+
+# Function to display "infinity and beyond "
+display(){
+    echo "infinity and beyond"
+}
+
+# Function that handles SIGTERM
+sigquit_handler(){
+    echo "I hate the kill command"
+    rm "$fullpath"
+    exit 0
+}
+
+# Function that handles SIGTERM
+sigterm_handler(){
+    echo "I hate the kill command"
+    rm "$fullpath"
+    exit 0
+}
+
+# Function that handles SIGINT
+sigint_handler(){
+    echo "Y U no love me?!"
+    exit 0
+}
+
+# Get the processID of the running process (this process)
+pid=$(pgrep -f 100-process_and_pid_file)
+
+# file pathname
+fullpath="/var/run/myscript.pid"
+dir=$(dirname $fullpath)
+
+
+# Handle signals
+trap "sigint_handler" SIGINT
+trap "sigterm_handler" SIGTERM
+trap "sigquit_handler"  SIGQUIT
+
+
+# Check if file exists
+if [ -e "$fullpath" ]; then
+    # meaning both directory and file exist
+    echo "$fullpath exists"
+   echo "$pid" > $fullpath
+   while true; do
+       display
+   done
+else
+    echo "$fullpath does not exists"
+   # Check if directory exist
+   if [ -d "$dir" ]; then
+       # meaning directory exist
+       echo "$pid" > $fullpath
+   while true; do
+       display
+       done
+   else
+       # directory does not exist
+       mkdir /var /var/run
+       echo "$pid" > $fullpath
+       while true; do
+	   display
+       done
+   fi
+   
+fi
+
+
