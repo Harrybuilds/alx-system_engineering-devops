@@ -9,7 +9,12 @@
 # You must use the for loop (while and until are forbidden)
 # Do not display hidden files
 
-for file in *-*; do
-    filename="${file#*-}";
-    echo "$filename";
+
+# Get list of files without hidden files into an array
+array=( * )
+
+# Loop through the array and print each element
+for file in "${array[@]}"; do
+    filename="${file#*-}"
+    echo "$filename"
 done
