@@ -26,5 +26,5 @@ if [ -e "$filename" ]; then
        echo "school is a regular file"
    fi
 else
-	echo "school file does not exit"
+	echo "school doesn't exit"
 fi
