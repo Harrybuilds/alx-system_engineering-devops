@@ -33,16 +33,34 @@
 # fi
 
 #pid=$(ps -eo pid,comm)
-pid=$(top -b -n 1 -d 1 -o PID)
-c=0
+# pid=$(top -b -n 1 -d 1 -o PID,COMM)
+# c=0
 
-for i in $pid; do
-    if [ "$i" == "PID" ] || [ "$i" == "COMMAND" ]; then
-	continue
+# for i in $pid; do
+#    if [ $i == "PID" ] || [ $i == "COMMAND" ]; then
+#	continue
+#    fi
+#    printf "%s " "$i"
+#    (( c++ ))
+#    if (( c % 2 == 0 )); then
+#	echo ""
+#    fi
+#    done
+
+
+# Iterate over directories in /proc
+for pid_dir in /proc/*/; do
+    echo "$pid_dir"
+    pid=$(basename "$pid_dir")
+
+    # Check if the directory name is a number (process ID)
+    if [[ "$pid" =~ ^[0-9]+$ ]]; then
+        # Get the process name from /proc/<pid>/comm file
+        process_name=$(< "$pid_dir"/comm)
+
+        # Check if the process name contains the word "bash"
+        if [[ "$process_name" == *"bash"* ]]; then
+            echo "$pid $process_name"
+        fi
     fi
-    printf "%s " "$i"
-    (( c++ ))
-    if (( c % 2 == 0 )); then
-	echo ""
-    fi
-    done
+done
