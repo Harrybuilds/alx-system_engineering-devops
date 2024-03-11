@@ -7,5 +7,5 @@ pid=$(pgrep -f "7-highlander")
 
 # Check if the process exist in the process table
 if [ -n "$pid" ]; then
-   kill -9" $pid"
+   kill -9 "$pid"
 fi
