@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Check if the script is being run as root
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+# Display headers
+echo "PID   Program Name          Listening Port"
+
+# Use ss to list listening ports, filter by "LISTEN" status, and remove header line
+ss -tuln | grep "LISTEN" | awk '{print $7}' | while read line; do
+    # Extract PID and port from netstat output
+    pid=$(echo "$line" | awk -F"/" '{print $1}')
+    port=$(echo "$line" | awk -F":" '{print $NF}')
+    
+    # Get program name using PID
+    program=$(ps -p $pid -o comm=)
+
+    # Display PID, program name, and listening port
+    echo "$pid   $program   $port"
+done
+#!/usr/bin/env bash
