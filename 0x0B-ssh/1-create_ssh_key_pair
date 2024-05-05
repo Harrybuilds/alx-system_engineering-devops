@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#a bash script that creates an RSA key pair witha passphrase passed non-interractively
+
+ssh-keygen -f ~/.ssh/school -t rsa -b 4096 -C harrisonchialuka@gmail.com -N betty
