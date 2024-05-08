@@ -2,7 +2,7 @@
 #SSH configuration file so that you can connect to a server without typing a password.
 
 # Define SSH client configuration file path
-$ssh_config_path = '/root/.ssh/config'
+$ssh_config_path = '/etc/ssh/ssh_config'
 
 # Manage SSH client configuration file
 file { $ssh_config_path:
