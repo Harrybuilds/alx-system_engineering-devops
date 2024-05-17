@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # this script is to link sites-enabled to sites-available and restart nginx
-
 sudo cp /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default.bak
 sudo rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
