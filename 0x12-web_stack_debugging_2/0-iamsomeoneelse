@@ -1,0 +1,12 @@
+#!/bin/bash
+# Bash script that accepts one argument
+# the script should run the whoami command under the user passed as an argument
+
+
+#checks if argument is passed
+if [ -z "$1" ]; then
+    echo "Usage: $0 <username>"
+    exit 1
+fi
+su -c "whoami" "$1"
+    
