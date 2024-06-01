@@ -1,26 +1,7 @@
 #!/usr/bin/env bash
-# Create nginx user if it doesn't exist
-id -u nginx &>/dev/null || useradd -r -s /bin/false nginx
-
-# Install Nginx if not already installed
-if ! which nginx &>/dev/null; then
-  apt-get update && apt-get install -y nginx
-fi
-
-# Modify Nginx configuration to run as nginx user and listen on port 8080
-NGINX_CONF="/etc/nginx/nginx.conf"
-sed -i 's/user .*/user nginx;/g' $NGINX_CONF
-sed -i 's/listen 80;/listen 8080;/g' /etc/nginx/sites-available/default
-
-# Ensure ownership and permissions are correct
-chown -R nginx:nginx /var/log/nginx /var/lib/nginx /var/www/html
-
-# Restart Nginx to apply changes
-systemctl restart nginx
-
-# Verify Nginx is running as the nginx user
-# ps aux | grep 'nginx' | grep -v 'root'
-# ps -o user,pid,cmd -p $(pgrep nginx) | grep -v '^root'
-# ps -o user,pid,cmd -p "$(pgrep -u $(getent passwd | awk -F: '$1 != "root" {print $1}' | paste -sd, -) "nginx")"
-ps -o user,pid,cmd -p "$(pgrep -u "$(getent passwd | awk -F: '$1 != "root" {print $1}' | paste -sd, -)" nginx)"
-
+# Fixes the issue with the server
+chmod 644 /etc/nginx/nginx.conf
+sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
+sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
+pkill apache2
+su nginx -s /bin/bash -c 'service nginx restart'
