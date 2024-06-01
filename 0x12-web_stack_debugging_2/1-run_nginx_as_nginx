@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Create nginx user if it doesn't exist
 id -u nginx &>/dev/null || useradd -r -s /bin/false nginx
 
