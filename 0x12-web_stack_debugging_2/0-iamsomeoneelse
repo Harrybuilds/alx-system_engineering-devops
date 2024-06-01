@@ -8,5 +8,5 @@ if [ -z "$1" ]; then
     echo "Usage: $0 <username>"
     exit 1
 fi
-su -c "whoami" "$1"
+su -s /bin/bash -c "whoami" "$1"
     
