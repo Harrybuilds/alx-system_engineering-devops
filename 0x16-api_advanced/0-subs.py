@@ -11,7 +11,7 @@ def number_of_subscribers(subreddit):
     """
     function to return number of all subscribers of a sub-reddit
     """
-    url = f"https://reddit.com/r/{subreddit}/hot.json"
+    url = f"https://reddit.com/r/{subreddit}.json"
 
     # Additional options (optional):
     headers = {"User-Agent": "your_custom_user_agent"}
