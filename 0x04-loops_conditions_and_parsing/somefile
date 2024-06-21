@@ -1,0 +1,27 @@
+Line: root:x:0:0:root:/root:/bin/bash
+Line: daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+Line: bin:x:2:2:bin:/bin:/usr/sbin/nologin
+Line: sys:x:3:3:sys:/dev:/usr/sbin/nologin
+Line: sync:x:4:65534:sync:/bin:/bin/sync
+Line: games:x:5:60:games:/usr/games:/usr/sbin/nologin
+Line: man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+Line: lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+Line: mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+Line: news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+Line: uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+Line: proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+Line: www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+Line: backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+Line: list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+Line: irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+Line: gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+Line: nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+Line: _apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+Line: systemd-network:x:101:103:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+Line: systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+Line: messagebus:x:103:105::/nonexistent:/usr/sbin/nologin
+Line: systemd-timesync:x:104:106:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+Line: vnstat:x:105:107:vnstat daemon,,,:/var/lib/vnstat:/usr/sbin/nologin
+Line: rtkit:x:106:109:RealtimeKit,,,:/proc:/usr/sbin/nologin
+Line: postgres:x:107:110:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+Line: mysql:x:108:111:MySQL Server,,,:/nonexistent:/bin/false

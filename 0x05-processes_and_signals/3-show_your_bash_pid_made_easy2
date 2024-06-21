@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+# Parent process
+# echo "Parent process (PID $$)"
+# i=1
+# if [ $i -eq 1 ]; then
+#    # Create a child process by running a command in the background
+#    sleep 7607 &
+#
+#    # Display the PID of the child process
+#    echo "Child process (PID $!)"
+#fi
+
+# outcome=$(ps aux)
+
+# echo $outcome
+
+
+# Get the name of the process
+# process_name="bash"
+
+# Use pgrep to get the PID of the process
+# pid=$(pgrep -f "$process_name")
+# echo "pid = $pid"
+
+# If the process is running
+# if [ -n "$pid" ]; then
+    # Get the name of the process using the PID
+#    name=$(ps -p "$pid" -o comm=)
+#    echo "Process name: $name"
+# else
+#    echo "Process $process_name is not running"
+# fi
+
+#pid=$(ps -eo pid,comm)
+# pid=$(top -b -n 1 -d 1 -o PID,COMM)
+# c=0
+
+# for i in $pid; do
+#    if [ $i == "PID" ] || [ $i == "COMMAND" ]; then
+#	continue
+#    fi
+#    printf "%s " "$i"
+#    (( c++ ))
+#    if (( c % 2 == 0 )); then
+#	echo ""
+#    fi
+#    done
+
+
+# Iterate over directories in /proc
+# for pid_dir in /proc/*/; do
+#    echo "$pid_dir"
+#    pid=$(basename "$pid_dir")
+
+#    # Check if the directory name is a number (process ID)
+#    if [[ "$pid" =~ ^[0-9]+$ ]]; then
+        # Get the process name from /proc/<pid>/comm file
+#        process_name=$(< "$pid_dir"/comm)
+
+        # Check if the process name contains the word "bash"
+#        if [[ "$process_name" == *"bash"* ]]; then
+#            echo "$pid $process_name"
+#        fi
+#    fi
+# done
+
+
+# after so much stress
+pgrep -l bash

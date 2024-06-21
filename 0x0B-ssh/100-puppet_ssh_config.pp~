@@ -1,0 +1,18 @@
+#puppet manifest to make changes to our configuration file to set up the clien
+#SSH configuration file so that you can connect to a server without typing a password.
+
+# Define SSH client configuration file path
+$ssh_config_path = 'root/.ssh/config'
+
+# Manage SSH client configuration file
+file { $ssh_config_path:
+  ensure  => present,
+  mode    => '0600',
+  content => "
+    Host *
+      IdentityFile ~/.ssh/school
+      PasswordAuthentication no
+  ",
+  owner   => 'root',
+  group   => 'root',
+}

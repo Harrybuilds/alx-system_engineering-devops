@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Update package list
+apt-get update
+
+# Install NGINX
+apt-get install -y nginx
+
+# Configure NGINX to listen on port 80
+sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
+
+# Restart NGINX
+kill -HUP $(cat /var/run/nginx.pid)
+
+# Create index.html with "Hello World!" content
+echo "Hello World!" > /var/www/html/index.html
+
+# Test NGINX server response with curl
+curl -s localhost | grep "Hello World!"
+
+# Check if NGINX is running
+ps aux | grep nginx

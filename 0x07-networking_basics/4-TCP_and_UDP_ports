@@ -10,7 +10,7 @@ fi
 echo "PID   Program Name          Listening Port"
 
 # Use ss to list listening ports, filter by "LISTEN" status, and remove header line
-ss -tuln | grep "LISTEN" | awk '{print $7}' | while read line; do
+netstat -tuln | grep "LISTEN" | awk '{print $7}' | while read line; do
     # Extract PID and port from netstat output
     pid=$(echo "$line" | awk -F"/" '{print $1}')
     port=$(echo "$line" | awk -F":" '{print $NF}')

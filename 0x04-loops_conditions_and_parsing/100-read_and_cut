@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# This script displays the content of the file /etc/passwd.
+
+# Your script should only display:
+
+# username
+# user id
+# Home directory path for the user
+# Requirements:
+# 
+# You must use the while loop (for and until are forbidden)
+
+
+# Check if a file path is provided as an argument
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <file>"
+    exit 1
+fi
+
+# File path is provided as the first argument
+file="$1"
+
+# Check if the file exists and is readable
+if [ ! -r "$file" ]; then
+    echo "File $file is not readable or does not exist"
+    exit 1
+fi
+
+# Loop through each line of the file
+while IFS= read -r line; do
+    echo "Line: $line"
+done < "$file"
