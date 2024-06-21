@@ -11,7 +11,7 @@ def number_of_subscribers(subreddit):
     """returns the number of subscribers for a given subreddit"""
 
     url = f'http://www.reddit.com/r/{subreddit}/about.json'
-    headers = {'User-Agent': 'custom agent'}
+    headers = {'User-Agent': 'custom agent:python:script'}
 
     if subreddit is None or type(subreddit) is not str:
         return 0
