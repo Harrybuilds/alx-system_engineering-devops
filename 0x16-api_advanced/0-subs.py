@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-module that g
-housrs a function to return number of all subscribers of a sub-reddit
+module that houses a function to return number of all subscribers of a sub-reddit using the reddit API
 """
 
 import requests
@@ -11,10 +10,10 @@ def number_of_subscribers(subreddit):
     """
     function to return number of all subscribers of a sub-reddit
     """
-    url = f"https://reddit.com/r/{subreddit}.json"
+    url = f"https://reddit.com/r/{subreddit}/about.json"
 
     # Additional options (optional):
-    headers = {"User-Agent": "your_custom_user_agent"}
+    headers = {"User-Agent": "python script"}
     params = {"limit": 10}  # Limit the number of posts returned
 
     # Send the GET request
@@ -25,10 +24,7 @@ def number_of_subscribers(subreddit):
         # Parse the JSON response
         data = res.json()
 
-        if data['data']['children']:
-            data_only = data['data']['children'][-1]['data']
-            return data_only['subreddit_subscribers']
-        else:
-            return 0
+        sub = data.get("data", {}).get("subscribers", 0)
+        return sub
     else:
         return 0
