@@ -16,6 +16,9 @@ def top_ten(subreddit):
     title on a given subreddit
     """
 
+    if not subreddit or not isinstance(subreddit, str):
+        print(None)
+
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     user_agent = {'User-agent': 'CLI'}
     payload = {'limit': 10}
