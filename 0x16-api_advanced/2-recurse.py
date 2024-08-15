@@ -8,7 +8,7 @@ def recurse(subreddit, hot_list=[]):
     global after
     user_agent = {'User-Agent': 'api_advanced-project'}
 
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json")
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
 
     results = requests.get(
         url, params={'after': after},
